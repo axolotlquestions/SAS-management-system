@@ -36,7 +36,7 @@ class Adoption
       sql = "SELECT * FROM adoptions;"
       values = []
       adoptions = SqlRunner.run(sql, values)
-      result = adoptions.map { |adoption| adoption.new(adoption) }
+      result = adoptions.map { |adoption| Adoption.new(adoption) }
       return result
     end
 
