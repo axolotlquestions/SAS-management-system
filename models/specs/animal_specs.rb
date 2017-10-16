@@ -6,7 +6,7 @@ require_relative '../animal'
 class TestAnimal < MiniTest::Test
 
   def setup()
-    @animal1 = Animal.new({ 'name' => "Fluffy", 'species' => "Cat", 'breed' => "Persian", 'adoptable' => true, 'admission_date' => "27/5/2017"})
+    @animal1 = Animal.new({ 'name' => "Fluffy", 'species' => "Cat", 'breed' => "Persian", 'adoptable' => true, 'admission_date' => "2017/5/27"})
   end
 
   def test_animal_has_name
@@ -34,7 +34,7 @@ class TestAnimal < MiniTest::Test
   end
 
   def test_animal_has_admission_date
-    expected = "27/5/2017"
+    expected = "27/05/2017"
     actual = (@animal1.admission_date)
     assert_equal(expected, actual)
   end

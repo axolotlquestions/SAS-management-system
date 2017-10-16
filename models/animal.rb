@@ -1,8 +1,9 @@
+require 'Date'
 require_relative '../db/sql_runner'
 
 class Animal
 
-attr_accessor :name, :species, :breed, :adoptable, :admission_date
+attr_accessor :name, :species, :breed, :adoptable
 attr_reader :id
 
 
@@ -11,8 +12,15 @@ attr_reader :id
     @name = details['name']
     @species = details['species']
     @breed = details['breed']
-    @adoptable = details['adoptable']
-    @admission_date = details['admission_date']
+    @adoptable = convert_to_boolean(details['adoptable'])
+    @admission_date = Date.parse(details['admission_date'])
+  end
+
+  def convert_to_boolean(status)
+    if status == "t" || status == true
+      return true
+    end
+    return false
   end
 
 #create
@@ -39,7 +47,7 @@ attr_reader :id
     sql = "SELECT * FROM animals WHERE id = $1;"
     values = [id]
     animals = SqlRunner.run(sql, values)
-    result = animals.map { |animal| Animal.new(animal) }
+    result = animals.map { |animal| Animal.new(animal) }.first
     return result
   end
 
@@ -65,6 +73,11 @@ attr_reader :id
     sql = 'DELETE FROM animals WHERE id = $1;'
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def admission_date
+    d = @admission_date
+    return d.strftime("%d/%m/%Y")
   end
 
 end
