@@ -18,5 +18,8 @@ end
 post '/adoptions' do
   adoption = Adoption.new(params)
   adoption.save
+  animal = adoption.animal
+  animal.adoptable=false
+  animal.update
   redirect to("/adoptions")
 end

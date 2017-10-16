@@ -78,4 +78,12 @@ class Adoption
       SqlRunner.run(sql, values)
     end
 
+    def animal()
+      sql = "SELECT * FROM animals
+      WHERE id = $1"
+      values = [@animal_id]
+      results = SqlRunner.run( sql, values )
+      return Animal.new( results.first )
+    end
+
 end

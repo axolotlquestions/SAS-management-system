@@ -2,5 +2,6 @@
 
 <% @owners.each do |owner| %>
 <p>Name: <%=owner.name()%></p>
+<p>Animals: <%= owner.animal_names %></p>
 <p><a href="/owners/<%=owner.id%>">Show owner</a></p>
 <%end%>

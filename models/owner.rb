@@ -72,16 +72,27 @@ attr_reader :id
     return animals.map {|animal| Animal.new(animal)}
   end
 
-  def adopt(animal)
-    # is the animal ready for adoption?
-    return nil if animal.adoptable == false
-    #create adoption record
-    adoption = Adoption.new({'animal_id' => animal.id, 'owner_id' => @id})
-    #save it to the database
-    adoption.save
-    #mark the animal as unable to be adopted
-    animal.adoptable=false
-    animal.update
+  def animal_names
+    sql = "SELECT animals.* FROM animals
+    INNER JOIN adoptions
+    ON adoptions.animal_id = animals.id
+    WHERE owner_id = $1;"
+    values = [@id]
+    animals = SqlRunner.run(sql, values)
+    return animals.map{|animal| animal['name']}.join(", ")
   end
+  # def adopt(animal)
+  #   # is the animal ready for adoption?
+  #   return nil if animal.adoptable == false
+  #   #create adoption record
+  #   adoption = Adoption.new({'animal_id' => animal.id, 'owner_id' => @id})
+  #   #save it to the database
+  #   adoption.save
+  #   #mark the animal as unable to be adopted
+  #   animal.adoptable=false
+  #   animal.update
+  # end
+
+
 
 end
