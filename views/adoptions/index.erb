@@ -1,6 +1,9 @@
 <h1>Adoptions</h1>
 
 <% @adoptions.each do |adoption| %>
-<p>Owner_id: <%=adoption.owner_id%></p>
-<p>Animal_id: <%=adoption.animal_id%></p>
+<p>Owner Name: <%=Owner.find(adoption.owner_id).name%></p>
+<p>Animal Name: <%=Animal.find(adoption.animal_id).name%></p>
+<hr/>
 <%end%>
+
+<p><a href="adoptions/new">Adopt a pet</a></p>

@@ -35,7 +35,7 @@ attr_reader :id
     sql = "SELECT * FROM owners WHERE id = $1;"
     values = [id]
     owners = SqlRunner.run(sql, values)
-    result = owners.map { |owner| Owner.new(owner) }
+    result = owners.map { |owner| Owner.new(owner) }.first
     return result
   end
 

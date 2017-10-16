@@ -51,6 +51,13 @@ attr_reader :id
     return result
   end
 
+  def self.all_adoptable
+    sql = "SELECT * FROM animals WHERE adoptable = $1;"
+    values = ['t']
+    animals = SqlRunner.run(sql, values)
+    result = animals.map { |animal| Animal.new(animal) }
+    return result
+  end
 #update
 
   def update()
@@ -77,7 +84,7 @@ attr_reader :id
 
   def admission_date
     d = @admission_date
-    return d.strftime("%d/%m/%Y")
+    return d.strftime("%d-%m-%Y")
   end
 
 end
