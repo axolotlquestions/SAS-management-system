@@ -1,10 +1,10 @@
 
-<section>
+
 <h3>Owner Details</h3>
 
 <hr/>
 <p>Name: <%=@owner.name()%></p>
 
-
-
-</section>
+<form action="/owners/<%=@owner.id%>/delete" method="post">
+  <input class="button" type="submit" value="Remove Owner" />
+</form>
