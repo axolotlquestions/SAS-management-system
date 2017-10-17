@@ -2,10 +2,10 @@
 <p>Here you can find some of the owners on our books, both those who have adopted pets, and those who are still looking to give an animal a new home.</p>
 <div class="flex-container owners">
 <% @owners.each do |owner| %>
-<div class="flex-item owner"
+<div class="flex-item owner">
 <p>Name: <%=owner.name()%></p>
 <p>Animals: <%= owner.animal_names %></p>
-<p><a href="/owners/<%=owner.id%>">Show owner</a></p>
+<p><a href="/owners/<%=owner.id%>" class='button'>Show owner</a></p>
 </div>
 <%end%>
 </div>

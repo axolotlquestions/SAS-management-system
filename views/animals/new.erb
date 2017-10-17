@@ -1,0 +1,35 @@
+<h2>Please supply Animal's details below</h2>
+
+
+<form action="/animals" method="POST">
+<fieldset>
+<legend>Add an Animal</legend>
+<div>
+  <label class="field" for="name">Name:</label>
+  <input type="text" name="name" id="name" class='textbox'/>
+</div>
+<div>
+  <label class="field" for="species">Species:</label>
+  <input type="text" name="species" id='species'class='textbox'/>
+</div>
+<div>
+  <label class="field" for="breed">Breed:</label>
+  <input type="text" name="breed" id="breed"class='textbox'/>
+</div>
+<div>
+  <label class='field'for="adoptable">Adoptable:</label>
+  <select name="adoptable" id="animalSelect" class='textbox'/>
+   <option value=true>Yes</option>
+   <<option value=false>No</option>
+   </select>
+ </div>
+ <div>
+  <label class="field" for="admissionDate">Admission Date:</label>
+  <input type="date" name="admission_date"class='textbox'/>
+</div>
+<div>
+  <input type="submit" value="Submit">
+</div>
+</fieldset>
+
+</form>

@@ -1,12 +1,16 @@
 <h1>Animals</h1>
 
-<h3><a href="animals/admissions">Animal by admission date</a></h3>
+<h3><a href="animals/admissions" class='button'>View Animals' admission dates</a></h3>
 
+<div class="flex-container owners">
 <% @animals.each do |animal| %>
+<div class="flex-item owner">
 <p>Name: <%=animal.name()%></p>
 <p>Species: <%=animal.species%></p>
 <p>Breed: <%=animal.breed%></p>
-<p>Adoptable: <%=animal.adoptable%></p>
-<p>Admission date: <%=animal.admission_date%></p>
-<p><a href="/animals/<%=animal.id%>">Show animal</a></p>
+<p><a href="/animals/<%=animal.id%>" class='button'>Show animal</a></p>
+</div>
 <%end%>
+</div>
+
+<a href="animals/new" class="button">Add an animal</a>
