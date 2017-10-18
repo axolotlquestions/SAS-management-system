@@ -6,7 +6,7 @@
 <hr/>
 <p>Breed: <%=@animal.breed%></p>
 <hr/>
-<p>Adoptable: <%=@animal.adoptable%></p>
+<p>Adoptable: <%=@animal.adoptable_display%></p>
 <hr/>
 <p>Admission date: <%=@animal.admission_date%></p>
 <hr/>
@@ -34,8 +34,8 @@
 <div>
   <label for="adoptable">Adoptable</label>
   <select name="adoptable" id="animalSelect">
-    <option value=true>Yes</option>
-    <option value=false>No</option>
+    <option value="t">Yes</option>
+    <option value="f">No</option>
   </select>
 </div>
 

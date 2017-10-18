@@ -1,9 +1,14 @@
 <h1>Adoptions</h1>
 
+<div class="flex-container owners">
 <% @adoptions.each do |adoption| %>
+<div class="flex-item owner">
 <p>Owner Name: <%=Owner.find(adoption.owner_id).name%></p>
 <p>Animal Name: <%=Animal.find(adoption.animal_id).name%></p>
-<hr/>
-<%end%>
+<img id="hooray"src="/thumbsup.jpeg" alt="thumbs up">
+</div>
 
-<p><a href="adoptions/new">Adopt a pet</a></p>
+<%end%>
+</div>
+
+<p><a href="adoptions/new" class="button">Adopt a pet</a></p>

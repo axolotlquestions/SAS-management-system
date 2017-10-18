@@ -18,14 +18,19 @@ get '/animals/admissions' do
   erb (:'animals/admissions')
 end
 
-get '/animals/:id/edit' do
-  @animal = Animal.find(params['id'])
-  erb(:'animals/edit')
-end
+get '/animals/adoptable' do
+ @animals = Animal.all_adoptable
+ erb(:'animals/adoptable')
+ end  
 
 get '/animals/:id' do
   @animal = Animal.find(params['id'])
   erb(:'animals/show')
+end
+
+get '/animals/:id/edit' do
+  @animal = Animal.find(params['id'])
+  erb(:'animals/edit')
 end
 
 post '/animals' do
